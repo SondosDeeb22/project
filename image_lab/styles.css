@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
 :root{--bg:#1B1B1D;--panel:#202023;--side:#1E1E21;--vp:#141416;--plot:#161618;
 --b1:#2A2A2E;--b2:#2E2E32;--b3:#34343A;--tx:#E4E4E8;--tx2:#B4B4BA;--mu:#9C9CA2;--fa:#8A8A90;
---ac:#6C9BD1;--sel:#3A4A5C;--hov:#27272A}
+--ac:#6CBC9B;--sel:#3A5C4A;--hov:#27272A}
 
 /* base */
 .stApp,.stApp button,.stApp input,.stApp textarea,[data-testid="stMarkdownContainer"] *{
@@ -45,10 +45,10 @@ section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:.45rem}
 
 /* buttons */
 [data-testid^="stBaseButton-"]{height:28px;min-height:28px;padding:0 12px;border-radius:3px;font-size:13px;font-weight:400;line-height:1}
-[data-testid="stBaseButton-secondary"]{background:#2A2A2D;border:1px solid #3A3A3F;color:#D6D6DA}
-[data-testid="stBaseButton-secondary"]:hover{background:#303034;border-color:#50505A;color:#fff}
-[data-testid="stBaseButton-primary"]{background:#4F7FB5;border:1px solid #7FA9D8;color:#fff;font-weight:600}
-[data-testid="stBaseButton-primary"]:hover{background:#5A8CC4;border-color:#8DB4E0}
+[data-testid="stBaseButton-secondary"]{background-color:#2A2A2D;border:1px solid #3A3A3F;color:#D6D6DA}
+[data-testid="stBaseButton-secondary"]:hover{background-color:#303034;border-color:#50505A;color:#fff}
+[data-testid="stBaseButton-primary"]{background:#4F9B5C;border:1px solid #7FC98D;color:#fff;font-weight:600}
+[data-testid="stBaseButton-primary"]:hover{background-color:#5A9B6C;border-color:#8BC98D}
 [data-testid^="stBaseButton-"]:disabled{opacity:.45}
 .stApp [data-testid="stSidebarUserContent"] .stButton{width:100%}
 .stApp [data-testid="stSidebarUserContent"] [data-testid^="stBaseButton-"]{width:100%}
@@ -80,22 +80,15 @@ section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:.45rem}
 .st-key-ilist [data-testid="stHorizontalBlock"]{gap:6px;align-items:center;flex-wrap:nowrap;padding:3px 6px 3px 12px;min-height:34px}
 .st-key-ilist [data-testid="stHorizontalBlock"]:hover{background:var(--hov)}
 .st-key-ilist [data-testid="stHorizontalBlock"]:has([data-testid="stBaseButton-primary"]){background:var(--sel)}
-.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(1),
-.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(3){flex:0 0 24px!important;width:24px!important;min-width:24px!important}
-.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(4){flex:0 0 32px!important;width:32px!important;min-width:32px!important}
-.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(2){flex:1 1 0!important;width:auto!important;min-width:0!important}
+.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(1){flex:1 1 0!important;width:auto!important;min-width:0!important}
+.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(2){flex:0 0 24px!important;width:24px!important;min-width:24px!important}
+.st-key-ilist [class*="st-key-sel_"] button{height:30px;width:100%;cursor:pointer;padding-left:36px!important;
+ background-repeat:no-repeat!important;background-position:2px center!important;background-size:24px 24px!important}
+.st-key-ilist [class*="st-key-sel_"] button:hover{background-repeat:no-repeat!important;background-position:2px center!important;background-size:24px 24px!important}
+.st-key-ilist [class*="st-key-rm_"] button{height:30px;width:24px!important;cursor:pointer}
 .st-key-ilist [data-testid="stBaseButton-secondary"],.st-key-ilist [data-testid="stBaseButton-primary"]{
- background:transparent!important;border:0!important;justify-content:center;padding:0;height:24px;min-height:24px;color:var(--tx);font-weight:400;font-size:14px}
+ background-color:transparent!important;border:0!important;justify-content:flex-start;padding:0;height:24px;min-height:24px;color:var(--tx);font-weight:400;font-size:14px}
 .st-key-ilist [data-testid="stBaseButton-primary"]{color:#fff}
-.st-key-ilist [class*="st-key-rm_"] button{
- background:var(--side)!important;border:0!important;width:20px!important;height:20px;min-height:20px;color:#fff!important;font-size:16px;font-weight:700;opacity:1!important;padding:0;position:relative}
-.st-key-ilist [class*="st-key-rm_"] button::before{
- content:"×";color:#fff;font-size:16px;font-weight:700;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.st-key-ilist img{width:24px;height:24px;border-radius:2px;object-fit:cover;display:block;margin:0}
-.st-key-ilist [data-testid="stMarkdownContainer"],.st-key-ilist [data-testid="stMarkdownContainer"] p{margin:0!important;line-height:0;display:flex;align-items:center}
-.st-key-ilist .image-name{color:var(--tx);font-size:13px;font-weight:400;padding:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
-.st-key-ilist :is([data-testid="stColumn"],[data-testid="column"]):nth-child(2){position:relative}
-.st-key-ilist [class*="st-key-rm_"] button{width:20px!important;height:20px;min-height:20px;padding:0;justify-content:center!important;color:#FF6B6B!important;background:var(--side)!important;border:0!important;border-radius:3px;font-size:18px;font-weight:700;line-height:1;opacity:1!important}
 /* .st-key-ilist [class*="st-key-rm_"] button:hover{background:var(--hov)!important;color:#FF8585!important} */
 
 /* add / drop zone */
@@ -138,6 +131,9 @@ section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:.45rem}
 .st-key-viewer [data-testid="stHorizontalBlock"]>:is([data-testid="stColumn"],[data-testid="column"]):first-child{
   flex:1 1 0!important}
 .st-key-viewer [data-testid="stButtonGroup"]{width:auto}
+.st-key-viewer [data-testid="stBaseButton-segmented_control"]{background-color:var(--b2)!important;border:1px solid var(--b2)!important;color:var(--mu)!important}
+.st-key-viewer [data-testid="stBaseButton-segmented_control"]:hover{background-color:var(--hov)!important;color:var(--tx)!important}
+.st-key-viewer [data-testid="stBaseButton-segmented_controlActive"]{background-color:var(--ac)!important;color:#fff!important;border-color:var(--ac)!important}
 .vh{display:flex;align-items:center;gap:10px;height:28px;line-height:28px;margin:0}
 .vh b,.st-key-viewer .vh span{line-height:28px}
 .vh b{font-size:15px;font-weight:600;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

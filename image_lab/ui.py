@@ -155,17 +155,19 @@ def image_list():
     shown = idx[page * ps:(page + 1) * ps]
     if not shown:
         md('<div class="hint">No images match.</div>')
+
+    rules = {}
     with st.container(key="ilist"):
-        for i in shown:
+        for i in shown:            # i = index in the FULL list
             it = items[i]
-            c1, c2, c3, c4 = st.columns([1, 6, 1, 1], vertical_alignment="center")
-            c1.markdown(f'<img src="{data.thumb_uri(it["path"], 48)}" alt="">', unsafe_allow_html=True)
-            # Display file name as markdown text
-            size_info = data.human(it['size'])
-            c2.markdown(f'<div class="image-name">{it["name"]}</div>', unsafe_allow_html=True)
-            c3.button("✓", key=f"sel_{it['id']}", on_click=cb_select, args=(i,),
-                      type="primary" if i == s.cur else "secondary", help=f"{it['name']} · {size_info}")
-            c4.button("×", key=f"rm_{it['id']}", on_click=cb_remove, args=(it["id"],), help=f"Remove {it['name']}")
+            k = f"sel_{it['id']}"
+            rules[k] = data.thumb_uri(it["path"], 48)
+            c1, c2 = st.columns([8, 1], vertical_alignment="center")
+            c1.button(it["name"], key=k, on_click=cb_select, args=(i,),
+                      type="primary" if i == s.cur else "secondary",
+                      help=f"{it['name']} · {it['label'] or data.human(it['size'])}")
+            c2.button("×", key=f"rm_{it['id']}", on_click=cb_remove, args=(it["id"],), help=f"Remove {it['name']}")
+    thumb_css(rules)
     if n > 10:
         c1, c2, c3 = st.columns([1, 3, 1], vertical_alignment="center")
         c1.button("‹", key="pg_prev", on_click=cb_page, args=(-1, pages), disabled=page == 0)
